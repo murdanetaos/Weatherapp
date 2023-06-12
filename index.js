@@ -1,18 +1,17 @@
 
-const express = require("express"); //includes the express package from node
-const app = express(); //creates a express application
+const express = require("express"); 
+const app = express(); 
 const bodyParser = require("body-parser");
-const https = require("https"); //include the https package from node
+const https = require("https"); 
 const { json } = require("stream/consumers");
 
-//Here we are creating our roiute for URL to page.html
+//Here we are creating our route for URL to index.html
 app.use(bodyParser.urlencoded({ extended: true })); // allows us to parse our url code
 app.get("/", function (req, res) {
   //we are aceessing the html file and creating a function for a request
-  res.sendFile(__dirname + "/page.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
-//Here we will implement our API CALL to our URL
 
 app.post("/", function (req, res) {
   const cityName = req.body.cityName;
